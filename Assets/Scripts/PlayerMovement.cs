@@ -20,13 +20,26 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D groundCheck;
     public BoxCollider2D playerCollider;
 
-    public Vector2 gravityVector, movementVector, walkVector, runVector, moveLimiter, jumpVector, maxFallVector;
-    public float lowGravityMultiplier, jumpSpeedMultipier;
+    [SerializeField] private Vector2 gravityVector = new Vector2(0, -1.16f);
+    [SerializeField] private Vector2 movementVector = new Vector2(0.3f, 0);
+    [SerializeField] private Vector2 walkVector = new Vector2(5, 0);
+    [SerializeField] private Vector2 runVector = new Vector2(10, 0);
+    [SerializeField] private Vector2 moveLimiter = new Vector2(0.9f, 1);
+    [SerializeField] private Vector2 jumpVector = new Vector2(0, 11.6f);
+    [SerializeField] private Vector2 maxFallVector = new Vector2(0, -16.6f);
+    [SerializeField] private float lowGravityMultiplier = 0.16f;
+    [SerializeField] private float jumpSpeedMultipier = 0.19f;
+
+    // Do not touch, is set in CalculateGravity()
     private Vector2 gravityVectorNormal, gravityVectorLow;
 
     private PlayerState currentState;
     private bool isGrounded, canJump, justJumped, jumpHeld, jumpPressedLastFrame, runHeld, turningAround;
-    [SerializeField] private int lowGravityFrames, runDelay, coyoteFrames;
+    
+    // Ticks are at 50tps, as per FixedUpdate()
+    [SerializeField] private int lowGravityTicks = 18;
+    [SerializeField] private int runDelay = 6;
+    [SerializeField] private int coyoteTicks = 4;
     private int jumpTime, runTime, lastGrounded;
     private float speed;
 
