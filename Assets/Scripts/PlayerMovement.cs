@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Check if grounded
         isGrounded = groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        if (isGrounded) lastGrounded = coyoteFrames;
+        if (isGrounded) lastGrounded = coyoteTicks;
         canJump = isGrounded || lastGrounded-- > 0;
 
         // Check if running
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         // Only run gravity if not on ground
         if (isGrounded) return;
 
-        // Apply weaker gravity if jump is held (only for a certain # of frames)
+        // Apply weaker gravity if jump is held (only for a certain # of ticks)
         if (jumpTime-- > 0 && justJumped && rb.velocity.y > 0.1) rb.velocity += gravityVectorLow;
         else rb.velocity += gravityVectorNormal;
 
@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
         canJump = false;
         justJumped = true;
         jumpHeld = true;
-        jumpTime = lowGravityFrames;
+        jumpTime = lowGravityTicks;
         lastGrounded = 0;
     }
 
