@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int lowGravityTicks = 18;
     [SerializeField] private int runDelay = 6;
     [SerializeField] private int coyoteTicks = 4;
+    
     private int jumpTime, runTime, lastGrounded;
     private float speed;
 
