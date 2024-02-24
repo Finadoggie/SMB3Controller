@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         // This exists solely for testing purposes
         CalculateGravity();
 
+        // Currently, multiple states are not used
+        // Could be used for swimming, climbing a ladder, etc.
         switch (currentState)
         {
             case PlayerState.Normal:
