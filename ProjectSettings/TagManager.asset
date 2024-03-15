@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Wire
+  - Wire Addons
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wire
+    uniqueID: 2694909311
+    locked: 0
+  - name: Wire Addons
+    uniqueID: 770308803
     locked: 0
